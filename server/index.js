@@ -4,11 +4,11 @@ import { generateTagline } from './gemini/generateTagline.js';
 
 const app = express();
 const PORT = 5000;
-const CLIENT_URL = 'http://localhost:5173';
+const CLIENT_URL = 'https://yourcozycard.vercel.app';
 
 // Middleware
 app.use(cors({
-    origin: [CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174'],
+    origin: [CLIENT_URL, 'https://yourcozycard.vercel.app', 'https://yourcozycard.vercel.app'],
     credentials: true
 }));
 app.use(express.json());
