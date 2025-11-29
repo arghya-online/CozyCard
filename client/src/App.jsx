@@ -23,6 +23,7 @@ function App() {
         name: '',
         photoFile: null,
         photoPreviewUrl: '',
+        imagePosition: 50, // Vertical position 0-100
         gradientId: 'ocean_depth',
         answers: {
             q1: '',
@@ -53,11 +54,12 @@ function App() {
         setFormData(prev => ({ ...prev, name }));
     };
 
-    const handlePhotoChange = (file, previewUrl) => {
+    const handlePhotoChange = (file, previewUrl, position = 50) => {
         setFormData(prev => ({
             ...prev,
-            photoFile: file,
-            photoPreviewUrl: previewUrl
+            photoFile: file || prev.photoFile,
+            photoPreviewUrl: previewUrl,
+            imagePosition: position
         }));
     };
 
@@ -134,6 +136,7 @@ function App() {
             name: '',
             photoFile: null,
             photoPreviewUrl: '',
+            imagePosition: 50,
             gradientId: 'ocean_depth',
             answers: {
                 q1: '',
@@ -185,6 +188,7 @@ function App() {
                         tagline={tagline}
                         gradientId={formData.gradientId}
                         photoPreviewUrl={formData.photoPreviewUrl}
+                        imagePosition={formData.imagePosition}
                     />
                 );
             default:

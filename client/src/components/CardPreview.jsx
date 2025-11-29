@@ -5,7 +5,7 @@ import { GRADIENTS } from './GradientPicker';
 /**
  * Card preview component - Shows final card with gradient (NO filter over photo)
  */
-export default function CardPreview({ name, tagline, gradientId, photoPreviewUrl }) {
+export default function CardPreview({ name, tagline, gradientId, photoPreviewUrl, imagePosition = 50 }) {
     const cardRef = useRef(null);
 
     // Find the selected gradient
@@ -64,13 +64,17 @@ export default function CardPreview({ name, tagline, gradientId, photoPreviewUrl
                         fontFamily: 'Courier New, monospace'
                     }}
                 >
-                    {/* Large Photo - 75% of card - Shows entire image */}
+                    {/* Large Photo - 75% of card - Draggable positioned */}
                     {photoPreviewUrl && (
                         <div className="relative w-full h-[75%] overflow-hidden bg-black">
                             <img
                                 src={photoPreviewUrl}
                                 alt={name}
-                                className="w-full h-full object-contain"
+                                className="absolute w-full h-auto min-h-full object-cover"
+                                style={{
+                                    top: '50%',
+                                    transform: `translateY(calc(-50% + ${(50 - imagePosition) * 2}%))`
+                                }}
                                 crossOrigin="anonymous"
                             />
                         </div>
