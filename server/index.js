@@ -7,8 +7,14 @@ const PORT = 5000;
 const CLIENT_URL = 'https://yourcozycard.vercel.app';
 
 // Middleware
+// Middleware
 app.use(cors({
-    origin: [CLIENT_URL, 'https://yourcozycard.vercel.app', 'https://yourcozycard.vercel.app'],
+    origin: [
+        'https://yourcozycard.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'http://127.0.0.1:5173'
+    ],
     credentials: true
 }));
 app.use(express.json());
