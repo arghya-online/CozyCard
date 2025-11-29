@@ -6,6 +6,7 @@ import GradientPicker from './components/GradientPicker';
 import CardPreview from './components/CardPreview';
 import LoadingOverlay from './components/LoadingOverlay';
 import { generateTagline } from './lib/api';
+import { Analytics } from "@vercel/analytics/react"
 
 // Step constants
 const STEPS = {
@@ -278,6 +279,9 @@ function App() {
             <div className="mt-12 md:mt-16 text-center text-gray-400 text-xs px-4">
                 <p>Made with React + Express</p>
             </div>
+
+            {/* Vercel Analytics */}
+            <Analytics />
         </div>
     );
 }
